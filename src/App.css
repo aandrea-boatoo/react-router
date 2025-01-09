@@ -5,3 +5,14 @@ footer {
     left: 0;
     color: aliceblue;
 }
+
+.NavLink {
+    margin: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    color: red;
+    text-decoration: underline;
+}
