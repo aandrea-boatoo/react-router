@@ -14,7 +14,15 @@ export default function MainComponent() {
             .catch((error) => { console.log(error) })
             .finally(() => { console.log("fatto") })
     }
-
+    function deleteItem(e, id) {
+        e.preventDefault();
+        axios.delete(`${apiUrl}${bookEndPoint}/${id}`)
+            .then((res) => {
+                console.log(res.data);
+                console.log(res);
+                getData();
+            });
+    }
     return (
         <>
 
@@ -24,7 +32,7 @@ export default function MainComponent() {
                         return (
 
                             <div className="col-12 col-md-4 col-lg-3" key={book.id}>
-                                <CardComponent data={book} />
+                                <CardComponent data={book} onDeleteBook={(e) => { deleteItem(e, book.id) }} />
                             </div>
                         )
                     })}
